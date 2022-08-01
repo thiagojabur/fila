@@ -2,11 +2,11 @@
 
 public class Queue {
 
-    protected DNode header;    /* cabeÁalho*/
-    protected DNode trailer;    /* nÛ final*/
+    protected DNode header;    /* cabe√ßalho*/
+    protected DNode trailer;    /* n√≥ final*/
     protected int size;              /*tamanho da Lista*/
 
-    /**Construtor padr„o que cria uma lista vazia*/
+    /**Construtor padr√£o que cria uma lista vazia*/
     public Queue()
     {
         header = new DNode(null,null,null);
@@ -19,7 +19,7 @@ public class Queue {
         return size;
   }
 
-  public boolean isEmpty(){ /*a lista est· vazia??*/
+  public boolean isEmpty(){ /*a lista est√° vazia??*/
          return (size == 0);
   }
 
@@ -30,27 +30,27 @@ public class Queue {
           return header.getNext();
   }
 
-      /*Retorna o ˙ltimo da lista*/
+      /*Retorna o √∫ltimo da lista*/
   public DNode getLast() throws IllegalStateException{
           if(isEmpty())
               throw new IllegalStateException("Lista Vazia");
           return trailer.getPrev();
   }
-  /*Retorna o nÛ anterior do nÛ dado*/
+  /*Retorna o n√≥ anterior do n√≥ dado*/
 
   public DNode getPrev(DNode no) throws IllegalArgumentException{
       if(no==header)
-          throw new IllegalArgumentException("N„o h· nÛ anterior");
+          throw new IllegalArgumentException("N√£o h√° n√≥ anterior");
       return no.getPrev();
   }
 
-  /*Retorna o nÛ sucessor do nÛ dado*/
+  /*Retorna o n√≥ sucessor do n√≥ dado*/
   public DNode getNext(DNode no) throws IllegalArgumentException{
       if(no==trailer)
-          throw new IllegalArgumentException("N„o h· nÛ posterior");
+          throw new IllegalArgumentException("N√£o h√° n√≥ posterior");
       return no.getNext();
   }
-  /*Insere um dado nÛ antes de um dado v*/
+  /*Insere um dado n√≥ antes de um dado v*/
   public void addAntes(DNode v, DNode no) throws IllegalArgumentException{
       DNode u = getPrev(v);
       no.setPrev(u);
@@ -64,7 +64,7 @@ public class Queue {
   
   
   
-  /*Insere um dado nÛ depois de um nÛ "v"*/
+  /*Insere um dado n√≥ depois de um n√≥ "v"*/
   public void addAfter(DNode v, DNode no) throws IllegalArgumentException{
       DNode u = getNext(v);
       no.setPrev(v);
@@ -74,20 +74,20 @@ public class Queue {
       size++;
 
   }
-  public void enqueue(DNode no){  /*Insere um nÛ fornecido no fim da lista*/
+  public void enqueue(DNode no){  /*Insere um n√≥ fornecido no fim da lista*/
       if (size == 0) {
           DNode w;
           w = header.getNext();  /*aponta para o primeiro elemento da Lista*/
-          no.setNext(w);         /*atribui o endereÁo para o primeiro elemento */
-          no.setPrev(header);   /*atribui o endereÁo da sentinela header*/
-          w.setPrev(no);           /*aponta para o nÛ antigo*/
+          no.setNext(w);         /*atribui o endere√ßo para o primeiro elemento */
+          no.setPrev(header);   /*atribui o endere√ßo da sentinela header*/
+          w.setPrev(no);           /*aponta para o n√≥ antigo*/
           header.setNext(no);
           size = size + 1;    
       }
       else 
     	  addAntes(trailer,no);
 }
-/*Remove um determinado nÛ "no" da lista*/
+/*Remove um determinado n√≥ "no" da lista*/
   public void dequeue() throws IllegalArgumentException{
       DNode no = header.getNext();
 	  DNode u = getPrev(no);
@@ -101,11 +101,11 @@ public class Queue {
   
 
   
-  /* Indica se o nÛ possui antecessor*/
+  /* Indica se o n√≥ possui antecessor*/
   public boolean temAnt(DNode no){
       return (no!=header);
   }
-  /* Indica se o nÛ possui sucessor*/
+  /* Indica se o n√≥ possui sucessor*/
   public boolean temSuc(DNode no){
       return (no!=trailer);
   }
@@ -128,4 +128,5 @@ public class Queue {
 
 
 } /* Fim da Classe*/
+
 
